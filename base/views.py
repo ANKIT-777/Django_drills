@@ -72,7 +72,11 @@ def extra_runs_conceded_per_team_in_2016(request):
     data = {'extra_runs_conceded_per_team': list(result)}
     return JsonResponse(data)
 
-
+def extra_runs_conceded_per_team_in_2016_view(request):
+    json_data = extra_runs_conceded_per_team_in_2016(request)
+    data = json_data.content.decode('utf-8')
+    data_dict = json.loads(data)
+    return render(request, 'extra_runs_conceded_per_team_in_2016.html', {'data': json.dumps(data_dict)})
 
 def top_10_economical_bowler_in_2015(request):
     year = 2015
