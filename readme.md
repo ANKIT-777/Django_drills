@@ -1,6 +1,6 @@
-# Ipl project
+# IPL Project
 
-Welcome to the Base project! This is a Django web application that provides solution of IPL project using DJango 
+Welcome to the IPL project! This is a Django web application that provides solutions for IPL-related queries using Django.
 
 ## Getting Started
 
@@ -58,36 +58,31 @@ Make sure you have the following installed on your machine:
 
 The app should now be running at [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
 
+*At Home page you can easily find the links to navigate to the charts*
+
 ## Usage
 
-Explain how to use the application and any additional setup needed.
+This Django app provides the following functionality:
 
 ### Routes for Calculating Results
 
 #### 1. Number of Matches Played per Year
 
-- **URL:** `/number_of_matches_per_year/`
+- **URL:** `/matches_played_view/`
 - **Description:** Returns the number of matches played per year for all the years in IPL.
 
 #### 2. Number of Matches Won per Team per Year
 
-- **URL:** `/number_of_matches_won_per_team_per_year/`
+- **URL:** `/number_of_matches_won_per_team_per_year_view/`
 - **Description:** Returns the number of matches won per team per year in IPL.
 
 #### 3. Extra Runs Conceded per Team in 2016
 
-- **URL:** `/extra_runs_conceded_per_team_in_2016/`
+- **URL:** `/extra_runs_conceded_per_team_in_2016_view/`
 - **Description:** Returns the extra runs conceded per team in the year 2016.
 
 #### 4. Top 10 Economical Bowlers in 2015
 
-- **URL:** `/top_10_economical_bowlers_in_2015/`
+- **URL:** `/top_10_economical_bowler_in_2015_view/`
 - **Description:** Returns information about the top 10 economical bowlers in the year 2015.
 
-## Contributing
-
-If you'd like to contribute to this project, please follow the guidelines in [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LIC
