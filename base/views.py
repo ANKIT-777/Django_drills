@@ -1,18 +1,19 @@
 # ipl_stats/views.py
+import json
 from django.forms import IntegerField
 from django.http import JsonResponse
 from django.db.models import Count,Sum,F,ExpressionWrapper, fields
 from django.shortcuts import render
 from .models import Match,Delivery
 from base import models
+from django.shortcuts import render
 
 
+def index_view(request):
+    
+    return render(request, 'index.html')
 
 
-
-
-def ipl_stats(request):
-    return render(request,)
 
 def matches_played_per_year(request):
     result = (
@@ -25,6 +26,16 @@ def matches_played_per_year(request):
     data = {'matches_per_year': list(result)}
     return JsonResponse(data)
 
+def matches_played_view(request):
+    
+    json_data = matches_played_per_year(request)
+    data = json_data.content.decode('utf-8')
+    data_dict = json.loads(data)
+    
+    return render(request, 'matches_played_per_year.html', {'data': json.dumps(data_dict)})
+
+
+
 def matches_won_per_team_per_year(request):
     
     result = (
@@ -36,6 +47,14 @@ def matches_won_per_team_per_year(request):
 
     data = {'matches_won_per_team_per_year': list(result)}
     return JsonResponse(data)
+
+def matches_won_per_team_per_year_view(request):
+    json_data = matches_won_per_team_per_year(request)
+    data = json_data.content.decode('utf-8')
+    data_dict = json.loads(data)
+    return render(request, 'matches_won_per_team_per_year.html', {'data': json.dumps(data_dict)})
+    
+    
 
 
 def extra_runs_conceded_per_team_in_2016(request):

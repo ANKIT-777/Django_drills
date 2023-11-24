@@ -1,0 +1,46 @@
+<!-- matches_played_per_year.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Matches Played Per Year</title>
+  <!-- Include Highcharts library -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+
+
+<div id="chart-container" style="width: 80%; height: 400px;"></div>
+
+<script>
+
+  var data = {{ data|safe }};
+
+  Highcharts.chart('chart-container', {
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: 'Matches Played Per Year'
+    },
+    xAxis: {
+      categories: data.matches_per_year.map(item => item.season)
+    },
+    yAxis: {
+      title: {
+        text: 'Matches Played'
+      }
+    },
+    series: [{
+      name: 'Matches Played',
+      data: data.matches_per_year.map(item => item.matches_played)
+    }],
+    accessibility: {
+      enabled: false
+    }
+  });
+</script>
+
+</body>
+</html>
