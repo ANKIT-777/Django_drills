@@ -97,3 +97,10 @@ def top_10_economical_bowler_in_2015(request):
     data = {'top_10_economical_bowler_in_2015': list(result)}
     
     return JsonResponse(data)
+
+
+def top_10_economical_bowler_in_2015_view(request):
+    json_data = top_10_economical_bowler_in_2015(request)
+    data = json_data.content.decode('utf-8')
+    data_dict = json.loads(data)
+    return render(request, 'top_10_economical_bowler_in_2015.html', {'data': json.dumps(data_dict)})

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Extra Runs Conceded Per Team in 2016</title>
+  <!-- Include Highcharts library -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+</head>
+<body>
+
+
+<div id="chart-container" style="width: 100%; height: 700px;"></div>
+
+<script>
+  var data = {{ data|safe }};
+
+  var seriesData = data.extra_runs_conceded_per_team.map(function(entry) {
+    return {
+      name: entry.bowling_team,
+      y: entry.extra_runs_conceded
+    };
+  });
+
+  
+  Highcharts.chart('chart-container', {
+    chart: {
+      type: 'pie'
+    },
+    title: {
+      text: 'Extra Runs Conceded Per Team in 2016'
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: true,
+          format: '<b>{point.name}</b>: {point.y}'
+        }
+      }
+    },
+    series: [{
+      name: 'Extra Runs Conceded',
+      colorByPoint: true,
+      data: seriesData
+    }],
+    accessibility: {
+      enabled: false
+    }
+  });
+</script>
+
+</body>
+</html>
