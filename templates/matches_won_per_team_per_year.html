@@ -1,23 +1,23 @@
-<!-- matches_won_per_team_per_year.html -->
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Matches Won Per Team Per Year</title>
-  <!-- Include Highcharts library -->
+  
   <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
 <body>
 
-<!-- Create a container for the chart -->
+
 <div id="chart-container" style="width: 100%; height: 600px;"></div>
 
 <script>
-  // Access the data directly from the template
+  
   var data = {{ data|safe }};
 
-  // Organize the data for Highcharts
+  
   var seriesData = {};
   data.matches_won_per_team_per_year.forEach(function(entry) {
     var team = entry.winner;
@@ -28,14 +28,14 @@
       seriesData[team] = [];
     }
 
-    // Create or update the data for each team and season
+    
     seriesData[team].push({
       name: season.toString(),
       y: matchesWon
     });
   });
 
-  // Convert the organized data to an array of series
+  
   var series = Object.keys(seriesData).map(function(team) {
     return {
       name: team,
@@ -43,7 +43,7 @@
     };
   });
 
-  // Initialize Highcharts and create the chart using the received data
+  
   Highcharts.chart('chart-container', {
     chart: {
       type: 'column'
