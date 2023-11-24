@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Top 10 Economical Bowlers in 2015</title>
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+
+
+<div id="chart-container" style="width: 100%; height: 600px;"></div>
+
+<script>
+  var data = {{ data|safe }};
+  var seriesData = data.top_10_economical_bowler_in_2015.map(function(entry) {
+    return {
+      name: entry.bowler,
+      y: entry.economy_rate
+    };
+  });
+
+  
+  Highcharts.chart('chart-container', {
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: 'Top 10 Economical Bowlers in 2015'
+    },
+    xAxis: {
+      categories: data.top_10_economical_bowler_in_2015.map(entry => entry.bowler)
+    },
+    yAxis: {
+      title: {
+        text: 'Economy Rate'
+      }
+    },
+    series: [{
+      name: 'Economy Rate',
+      data: seriesData
+    }],
+    accessibility: {
+      enabled: false
+    }
+  });
+</script>
+
+</body>
+</html>

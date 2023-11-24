@@ -1,14 +1,53 @@
-<!-- templates/index.html -->
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Base - Navigation</title>
 </head>
 <body>
-    <h1>Welcome to the Base App!</h1>
-    <p>Click on the links below to navigate:</p>
+    <header>
+        <h1 style="align-self: center;">IPL project!</h1>
 
+        <h3>Click on the name to see the output!</h3>
+        <nav>
+            <ul>
+                <li><a href="matches_played_view/">matches_played_per_year 1</a></li>
+                <li><a href="matches_won_per_team_per_year_view">extra_runs_conceded_per_team_in_2016 2</a></li>
+                <li><a href="extra_runs_conceded_per_team_in_2016_view">matches_won_per_team_per_year 1</a></li>
+                <li><a href="top_10_economical_bowler_in_2015_view">top_10_economical_bowler_in_2015 3</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="body" id="section1">
+        <a href="">
+            <div class="Card">
+                <div class="img"></div>
+                <div class="text"></div>
+            </div>
+        </a>
+    </div>
+
+    <div class="body" id="section2">
+        <a href="">
+            <div class="Card">
+                <div class="img"></div>
+                <div class="text"></div>
+            </div>
+        </a>
+    </div>
+
+    <div class="body" id="section3">
+        <a href="">
+            <div class="Card">
+                <div class="img"></div>
+                <div class="text"></div>
+            </div>
+        </a>
+    </div>
 </body>
 </html>

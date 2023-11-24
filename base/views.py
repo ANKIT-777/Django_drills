@@ -1,4 +1,4 @@
-# ipl_stats/views.py
+
 import json
 from django.forms import IntegerField
 from django.http import JsonResponse
